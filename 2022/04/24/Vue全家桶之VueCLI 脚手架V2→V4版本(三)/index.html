@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Vue全家桶之VueCLI 脚手架V2→V4版本(三) | Cat迪ღBLOG</title><meta name="keywords" content="Vue2.0,Vue-router,Vuex,Vue Cli"><meta name="author" content="Cat迪"><meta name="copyright" content="Cat迪"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="✍、目录脑图  配套视频讲解: CoderWhy老师的Vuejs讲解  Vue组件组件化开发指的是：根据封装的思想，把页面尚可重用的 UI 结构封装为组件，从而方便项目的开发和维护 Vue 是一个支持组件化开发的前端框架 Vue中规定：组件的后缀名是 .Vue，我们之前接触的 App.vue 文件本质尚就是一个 vue 的组件。 Vue组件的三个组成部分每个 .Vue 组件都是由三部分组成，分别是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue全家桶之VueCLI 脚手架V2→V4版本(三)">
+<meta property="og:url" content="http://example.com/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8BVueCLI%20%E8%84%9A%E6%89%8B%E6%9E%B6V2%E2%86%92V4%E7%89%88%E6%9C%AC(%E4%B8%89)/index.html">
+<meta property="og:site_name" content="Cat迪ღBLOG">
+<meta property="og:description" content="✍、目录脑图  配套视频讲解: CoderWhy老师的Vuejs讲解  Vue组件组件化开发指的是：根据封装的思想，把页面尚可重用的 UI 结构封装为组件，从而方便项目的开发和维护 Vue 是一个支持组件化开发的前端框架 Vue中规定：组件的后缀名是 .Vue，我们之前接触的 App.vue 文件本质尚就是一个 vue 的组件。 Vue组件的三个组成部分每个 .Vue 组件都是由三部分组成，分别是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cn.vuejs.org/images/logo.svg">
+<meta property="article:published_time" content="2022-04-24T05:02:11.000Z">
+<meta property="article:modified_time" content="2022-04-25T10:16:03.759Z">
+<meta property="article:author" content="Cat迪">
+<meta property="article:tag" content="Vue2.0">
+<meta property="article:tag" content="Vue-router">
+<meta property="article:tag" content="Vuex">
+<meta property="article:tag" content="Vue Cli">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cn.vuejs.org/images/logo.svg"><link rel="shortcut icon" href="/img/2.png"><link rel="canonical" href="http://example.com/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8BVueCLI%20%E8%84%9A%E6%89%8B%E6%9E%B6V2%E2%86%92V4%E7%89%88%E6%9C%AC(%E4%B8%89)/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/dd%E4%B8%AA%E4%BA%BA" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vue全家桶之VueCLI 脚手架V2→V4版本(三)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-25 18:16:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!--引入樱花特效--><script src="/js/sakura.js"></script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="./themes/butterfly/source/img/4.gif" data-original="/img/2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-quote-left"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cn.vuejs.org/images/logo.svg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cat迪ღBLOG</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fa fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fa fa-book"></i><span> 阅读</span></a></li><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-quote-left"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vue全家桶之VueCLI 脚手架V2→V4版本(三)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-24T05:02:11.000Z" title="发表于 2022-04-24 13:02:11">2022-04-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-25T10:16:03.759Z" title="更新于 2022-04-25 18:16:03">2022-04-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Vue2-0/">Vue2.0</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vue全家桶之VueCLI 脚手架V2→V4版本(三)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="✍、目录脑图"><a href="#✍、目录脑图" class="headerlink" title="✍、目录脑图"></a>✍、目录脑图</h2><p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/cf1100152fbd4c9d86b5ac34c89fefc6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li>配套视频讲解: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15741177Eh?from=search&seid=12220650172270950947&spm_id_from=333.337.0.0">CoderWhy老师的Vuejs讲解</a></li>
+</ul>
+<h1 id="Vue组件"><a href="#Vue组件" class="headerlink" title="Vue组件"></a>Vue组件</h1><p>组件化开发指的是：根据封装的思想，把页面尚可重用的 UI 结构封装为组件，从而方便项目的开发和维护</p>
+<p>Vue 是一个支持组件化开发的前端框架</p>
+<p>Vue中规定：组件的后缀名是 .Vue，我们之前接触的 App.vue 文件本质尚就是一个 vue 的组件。</p>
+<h2 id="Vue组件的三个组成部分"><a href="#Vue组件的三个组成部分" class="headerlink" title="Vue组件的三个组成部分"></a>Vue组件的三个组成部分</h2><p>每个 .Vue 组件都是由三部分组成，分别是</p>
+<ul>
+<li>template -&gt; 组件的模板结构</li>
+<li>script -&gt; 组件的 JavaScript 行为</li>
+<li>style -&gt; 组件的样式</li>
+</ul>
+<p><strong>其中，每个组件中必须包含template 模板结构，而script 行为和style 样式是可选的组成部分。</strong></p>
+<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3><p>vue 规定：每个组件对应的 模板结构，需要定义到 <code>&lt;template&gt;</code> 节点中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;!-- 当前组件的 <span class="variable constant_">DOM</span> 结构,需要定义到 template 标签的内部 --&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>template 是vue 提供的容器标签，只起到包裹性质的作用，它不会被渲染为真正的DOM 元素</li>
+<li>template 中只能包含唯一的根节点</li>
+</ul>
+<h3 id="script"><a href="#script" class="headerlink" title="script"></a>script</h3><p>vue 规定：开发者可以在<code>&lt;script&gt;</code> 节点中封装组件的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?from=pc_blog_highlight&q=JavaScript">JavaScript</a> 业务逻辑。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 今后,组件相关的 data 数据、methods 方法等</span></span><br><span class="line">    <span class="comment">// 都需要定义到 export default 所导出的对象中</span></span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;&#125;</span><br><span class="line">&lt;/script&gt;    </span><br></pre></td></tr></table></figure>
+
+<h3 id="style"><a href="#style" class="headerlink" title="style"></a>style</h3><p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?from=pc_blog_highlight&q=vue">vue</a> 规定：组件内的<code>&lt;style&gt;</code>节点是可选的，开发者可以在<code>&lt;style&gt;</code> 节点中编写样式美化当前组件的UI 结构。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">h1</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-weight</span>: normal;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="让style中支持less语法"><a href="#让style中支持less语法" class="headerlink" title="让style中支持less语法"></a>让style中支持less语法</h3><p>让 <code>&lt;style&gt;</code> 标签上添加 <code>lang=&quot;less&quot;</code> 属性,即可使用 less 语法编写组件的样式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;less&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-weight</span>: normal;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">span</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="组件之间的样式冲突问题"><a href="#组件之间的样式冲突问题" class="headerlink" title="组件之间的样式冲突问题"></a>组件之间的样式冲突问题</h3><p>默认情况下，写在.vue 组件中的样式会全局生效，因此很容易造成多个组件之间的样式冲突问题。</p>
+<p>导致组件之间样式冲突的根本原因是：</p>
+<ol>
+<li>单页面应用程序中，所有组件的DOM 结构，都是基于唯一的index.html 页面进行呈现的</li>
+<li>每个组件中的样式，都会影响整个index.html 页面中的DOM 元素</li>
+</ol>
+<p>为了提高开发效率和开发体验，vue 为style 节点提供了 scoped属性，<strong>从而防止组件之间的样式冲突问题</strong></p>
+<h3 id="deep-样式穿透"><a href="#deep-样式穿透" class="headerlink" title="/deep/样式穿透"></a>/deep/样式穿透</h3><ul>
+<li>如果给当前组件的style 节点添加了scoped 属性，则当前组件的样式对其子组件是不生效的。</li>
+<li>如果想让某些样式对子组件生效，可以使用 <code>/deep/ 深度选择器</code>。</li>
+</ul>
+<h2 id="使用组件的三个步骤"><a href="#使用组件的三个步骤" class="headerlink" title="使用组件的三个步骤"></a>使用组件的三个步骤</h2><p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/a28900e654974adaa2d58ca8e2b1757a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/39b1a198bfe24efb8b973ed18e17a16b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;app-container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>App 根组件<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--  渲染 Left 组件和 Right 组件   --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--  3.以标签形式,使用注册好的组件  --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Left</span>&gt;</span><span class="tag">&lt;/<span class="name">Left</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Right</span>&gt;</span><span class="tag">&lt;/<span class="name">Right</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 1.导入需要使用的 .vue组件</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">Left</span> <span class="keyword">from</span> <span class="string">&#x27;./components/Left&#x27;</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">import</span> <span class="title class_">Right</span> <span class="keyword">from</span> <span class="string">&#x27;./components/Right&#x27;</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">name</span>: <span class="string">&#x27;App&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 2.注册组件</span></span></span><br><span class="line"><span class="language-javascript">  <span class="attr">components</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// &#x27;Left&#x27;: Left 简化写法如下,对象里面键值一样的话直接写一个就行</span></span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">Left</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="title class_">Right</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.app-container</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">padding</span>: <span class="number">1px</span> <span class="number">20px</span> <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">background-color</span>: <span class="number">#efefef</span>;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"><span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="language-css">  <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="私有子组件"><a href="#私有子组件" class="headerlink" title="私有子组件"></a>私有子组件</h2><p>通过 components 注册的是私有子组件</p>
+<p>例如：</p>
+<p>在组件A的components 节点下，注册了组件F。则组件F 只能用在组件A 中；不能被用在组件C 中。</p>
+<h2 id="注册全局组件"><a href="#注册全局组件" class="headerlink" title="注册全局组件"></a>注册全局组件</h2><p>在vue 项目的main.js 入口文件中，通过Vue.component() 方法，可以注册全局组件。示例代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入需要全局注册的组件</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Count</span> <span class="keyword">from</span> <span class="string">&#x27;./components/Count.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数1:字符串格式,表示组件的注册名称</span></span><br><span class="line"><span class="comment">// 参数2:需要被全局注册的那个组件</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;MyCount&#x27;</span>,<span class="title class_">Count</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Vue-CLI2"><a href="#Vue-CLI2" class="headerlink" title="Vue CLI2"></a>Vue CLI2</h1><ul>
+<li>CLI是Command-Line Interface, 翻译为命令行界面, 但是俗称脚手架</li>
+<li>Vue CLI是一个官方发布 vue.js 项目脚手架</li>
+<li>使用 vue-cli 可以快速搭建Vue开发环境以及对应的webpack配置</li>
+<li>Vue CLI官网：<a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/">https://cli.vuejs.org/zh/</a></li>
+<li>vue-cli 是Vue.js 开发的标准工具。它简化了程序员基于webpack 创建工程化的Vue 项目的过程</li>
+<li>程序员可以专注在撰写应用上，而不必花好几天去纠结webpack 配置的问题</li>
+</ul>
+<h2 id="安装Vue脚手架"><a href="#安装Vue脚手架" class="headerlink" title="安装Vue脚手架"></a>安装Vue脚手架</h2><p>全局安装 cli</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/b276b89affd84d0e9ee2ac392794ba75.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>这样安装的是脚手架的最新版本，如果我们想安装脚手架 2 版本呢？</p>
+<p>全局安装脚手架2版本，这样的话我们就既可以用脚手架2的版本，也可以用脚手架最新的版本</p>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/d2c6115d282f4e68b3708b0c51346edf.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br></pre></td></tr></table></figure>
+
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/f9097afceec849b0a1d873c7fa23e88e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li>Vue CLI2 初始化项目命令</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack my-project</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Vue CLI 3 初始化项目命令</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create my-project</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看 VueCLI 版本（注意 V 要大写）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue -V</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vue-CLI2-初始化项目"><a href="#Vue-CLI2-初始化项目" class="headerlink" title="Vue CLI2 初始化项目"></a>Vue CLI2 初始化项目</h2><p>在终端输入 <code>vue init webpack my-project</code></p>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/4c3509b8b4ec48e8b68b3c99ef3ac80b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="目录结构详解"><a href="#目录结构详解" class="headerlink" title="目录结构详解"></a>目录结构详解</h3><p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/39bd8e0f12f14cf285ed1decb27fac7d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><p>我们使用脚手架初始化项目之后如何运行呢？</p>
+<p>cd 到对应目录，在终端输入 <code>npm run dev</code> 就可以运行了</p>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/18f0a34f024e4cd1a047fb46cf718ac2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/41e46f5334464252b97029710acc7275.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>我们来看 main.js</p>
+<ul>
+<li>Vue实例中，我们定义了el属性，用于和index.html中的#app进行绑定，让Vue实例之后可以管理它其中的内容</li>
+<li>而如果Vue实例中同时指定了template，那么template模板的内容会替换掉挂载的对应el的模板</li>
+<li>template 模板也就是 App.vue 里面的内容</li>
+</ul>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/7b5bb168b9654922a8c713df5a0cc7f1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="关闭Eslint"><a href="#关闭Eslint" class="headerlink" title="关闭Eslint"></a>关闭Eslint</h3><p>若我们在初始化项目时候开启了 ESlint 代码检测，我们不想用的时候方法如下：</p>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/f04f6e376dda473daf655ddd60c8c947.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h1 id="Vue-CLI3"><a href="#Vue-CLI3" class="headerlink" title="Vue CLI3"></a>Vue CLI3</h1><p>Vue-cli 3 与 2 版本有很大区别</p>
+<ul>
+<li>vue-cli 3 是基于 webpack 4 打造，vue-cli 2 还是 webapck 3</li>
+<li>vue-cli 3 的设计原则是“0配置”，移除的配置文件根目录下的，build和config等目录</li>
+<li>vue-cli 3 提供了 vue ui 命令，提供了可视化配置，更加人性化</li>
+<li>移除了static文件夹，新增了public文件夹，并且index.html移动到public中</li>
+</ul>
+<p>Vue CLI 3 初始化项目命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create my-project</span><br></pre></td></tr></table></figure>
+
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/be762a2d5692497eae10c02f3a7c5c59.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="目录结构详解-1"><a href="#目录结构详解-1" class="headerlink" title="目录结构详解"></a>目录结构详解</h2><p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/ecf83eff085b4097b65ba4b82a3c6e91.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="运行项目-1"><a href="#运行项目-1" class="headerlink" title="运行项目"></a>运行项目</h2><p>使用 Vue CLI3 初始化项目之后，运行项目。只需要看 package.json 下的 scripts 就知道运行命令</p>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/d655caa7eb7142c8bdceafadaaa22466.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li>方式一：启动图形化界面 <code>Vue ui</code></li>
+<li>方式二：自定义配置 vue.config.js</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Vue-CLI4"><a href="#Vue-CLI4" class="headerlink" title="Vue CLI4"></a>Vue CLI4</h1><h2 id="单页面应用程序SPA"><a href="#单页面应用程序SPA" class="headerlink" title="单页面应用程序SPA"></a>单页面应用程序SPA</h2><p>单页面应用程序（英文名：Single Page Application）简称SPA，顾名思义，指的是一个Web 网站中只有唯一的一个HTML 页面，所有的功能与交互都在这唯一的一个页面内完成。</p>
+<p>我们现在的开发模式就是单页面，一次将所有的资源请求完，这样我们点击此单页面的功能，就不会再去请求资源，极大的节约了我们的带宽。</p>
+<h2 id="Vue项目的运行流程"><a href="#Vue项目的运行流程" class="headerlink" title="Vue项目的运行流程"></a>Vue项目的运行流程</h2><p>在工程化的项目中，vue 要做的事情很单纯：通过 main.js 把 App.vue 渲染到 index.html 的指定区域中。</p>
+<p>其中：</p>
+<ul>
+<li>App.vue 用来编写待渲染的模板结构</li>
+<li>index.html 中需要预留一个el 区域</li>
+<li>main.js 把App.vue 渲染到了index.html 所预留的区域中</li>
+</ul>
+<h2 id="安装VueCLI4"><a href="#安装VueCLI4" class="headerlink" title="安装VueCLI4"></a>安装VueCLI4</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+
+<p>查看版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><ol>
+<li>在控制台输入如下命令会创建 hello-world 项目</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create hello-world</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>会弹出如下选择预设</p>
+<p>箭头上下键控制选择，选择 Manually select features 手动配置</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">? Please pick a preset: (Use arrow keys)</span><br><span class="line">&gt; Default ([Vue 2] babel, eslint) </span><br><span class="line">  Default (Vue 3) ([Vue 3] babel, eslint) </span><br><span class="line">  Manually select features </span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>手动配置如下</p>
+<p>箭头上下键控制选择，空格进行选中</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">? Please pick a preset: Manually select features</span><br><span class="line">? Check the features needed for your project: (Press &lt;space&gt; to select, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line">&gt;(*) Choose Vue version</span><br><span class="line"> (*) Babel</span><br><span class="line"> ( ) TypeScript</span><br><span class="line"> ( ) Progressive Web App (PWA) Support</span><br><span class="line"> ( ) Router</span><br><span class="line"> ( ) Vuex</span><br><span class="line"> ( ) CSS Pre-processors</span><br><span class="line"> (*) Linter / Formatter</span><br><span class="line"> ( ) Unit Testing</span><br><span class="line"> ( ) E2E Testing</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Choose Vue version</td>
+<td>选择Vue版本</td>
+</tr>
+<tr>
+<td>Babel</td>
+<td>vue项目中普遍使用es6语法，但有时我们的项目需要兼容低版本浏览器，这时就需要引入babel插件，将es6转成es5</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td>TypeScript通过添加类型来扩展JavaScript。通过了解JavaScript，TypeScript可以节省您捕获错误的时间并在运行代码之前提供修复。任何浏览器，任何操作系统，任何运行JavaScript的地方。 完全开源</td>
+</tr>
+<tr>
+<td>Progressive Web App (PWA) Support</td>
+<td>渐进式Web应用程序（PWA）支持</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>路由</td>
+</tr>
+<tr>
+<td>Vuex</td>
+<td>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化</td>
+</tr>
+<tr>
+<td>CSS Pre-processors</td>
+<td>CSS预处理器，预处理器：比如要用sass或者cssNext就要按照人家规定的语法形式，就是用人家的语法去编写，然后人家把你编写的代码转成css。</td>
+</tr>
+<tr>
+<td>Linter / Formatter</td>
+<td>格式化程序</td>
+</tr>
+<tr>
+<td>Unit Testing</td>
+<td>单元测试</td>
+</tr>
+<tr>
+<td>E2E Testing</td>
+<td>端到端（end-to-end）</td>
+</tr>
+</tbody></table>
+<ol>
+<li>配置放在一个文件里面还是分不同的文件配置</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">? Please pick a preset: Manually select features</span><br><span class="line">? Check the features needed for your project: Babel</span><br><span class="line">? Where do you prefer placing config for Babel, ESLint, etc.? (Use arrow keys)</span><br><span class="line">&gt; In dedicated config files</span><br><span class="line">  In package.json</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>配置项是否要保存</p>
+<p>如果保存,我们上面所选择的配置会作为以后项目的预置，我们不保存</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">? Please pick a preset: Manually select features</span><br><span class="line">? Check the features needed for your project: Babel</span><br><span class="line">? Where do you prefer placing config for Babel, ESLint, etc.? In package.json</span><br><span class="line">? Save this as a preset for future projects? (y/N)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>这样就会进行安装了</li>
+</ol>
+<h2 id="项目目录介绍"><a href="#项目目录介绍" class="headerlink" title="项目目录介绍"></a>项目目录介绍</h2><ul>
+<li>node_module:用于存放我们项目的各种依赖</li>
+<li>public:用于存放静态文件，是网站的根目录<ul>
+<li>favicon.ico：网站的小图标</li>
+<li>index.html：网站的首页，是一个模板文件，作用是生成项目的入口文件，webpack打包的js,css也会自动注入到该页面中。我们浏览器访问项目的时候就会默认打开生成好的index.html</li>
+</ul>
+</li>
+<li>src：src下就是我们写代码的地方<ul>
+<li>assets：用于存放各种静态文件，如图片</li>
+<li>components：用于存放我们的公共组件，如 header、footer等</li>
+<li>App.vue：主vue模块，引入其他模块，app.vue是项目的主组件，所有页面都是在app.vue下切换的</li>
+<li>main.js：入口文件，主要作用是初始化vue实例，同时可以在此文件中引用某些组件库或者全局挂在一些变量</li>
+<li>router.js：路由文件，这个里边可以理解为各个页面的地址路径，用于我们访问，同时可以直接在里边编写路由守卫</li>
+<li>store.js：主要用于项目里边的一些状态的保存</li>
+</ul>
+</li>
+<li>gitignore:git上传需要忽略的文件格式</li>
+<li>babel.config.js：是一个工具链，主要用于在当前和较旧的浏览器或环境中将ECMAScript 2015+代码转换为JavaScript的向后兼容版本</li>
+<li>package.json:模块基本信息项目开发所需要模块，版本，项目名称</li>
+<li>package-lock.json:是在 npm install时候生成一份文件，用以记录当前状态下实际安装的各个npm package的具体来源和版本号</li>
+<li>vue.config.js:保存vue配置的文件，可以用于设置代理,打包配置等</li>
+</ul>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/c70e7d3e285e4bb6a763d6096f71834b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="运行项目-2"><a href="#运行项目-2" class="headerlink" title="运行项目"></a>运行项目</h2><ul>
+<li>运行项目</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run serve</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>打包项目</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+
+<h2 id="Runtime-Compiler和Runtime-only的区别"><a href="#Runtime-Compiler和Runtime-only的区别" class="headerlink" title="Runtime-Compiler和Runtime-only的区别"></a>Runtime-Compiler和Runtime-only的区别</h2><p>运行时 + 编译器(Runtime + Compiler) 版本 和 只含有运行时版本(Runtime-only)</p>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/e48055bbb4094827b7e470eb19bc3f44.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>为什么存在这样的差异呢，我们先来看一下 Vue 程序运行过程，Vue中的模板如何最终渲染成真实DOM</p>
+<p><img src="./themes/butterfly/source/img/4.gif" data-original="https://img-blog.csdnimg.cn/0c26e74da0464435ab14284ef8be839e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>我们的 template 被 Vue 解析成 ast，ast 经过编译再通过 render 函数转成虚拟DOM，之后再转成我们的真实DOM</p>
+<p><strong>运行时 + 编译器(Runtime + Compiler) 版本</strong>：</p>
+<ul>
+<li>```<br>template -&gt; ast -&gt; render -&gt; vdom -&gt; UI<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**只含有运行时版本(Runtime-only)版本**：性能更高，且代码量更少</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  render -&gt; vdom -&gt; UI</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>简要总结：</p>
+<ul>
+<li>如果之后的开发中，你依然使用 template，就需要选择Runtime-Compiler</li>
+<li>如果你之后的开发中，使用的是.vue文件夹开发，那么可以选择Runtime-only （推荐）</li>
+</ul>
+<iframe width="0" height="0" id="csdn-buyside-iframe2" name="csdnBuysideIframe2" src="https://mall.csdn.net/sales/vip-buyside?from=" frameborder="0" scrolling="no" style="box-sizing: border-box; outline: 0px; margin: 0px; padding: 0px; font-weight: normal;"></iframe>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Cat迪</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8BVueCLI%20%E8%84%9A%E6%89%8B%E6%9E%B6V2%E2%86%92V4%E7%89%88%E6%9C%AC(%E4%B8%89)/">http://example.com/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8BVueCLI%20%E8%84%9A%E6%89%8B%E6%9E%B6V2%E2%86%92V4%E7%89%88%E6%9C%AC(%E4%B8%89)/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Cat迪ღBLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vue2-0/">Vue2.0</a><a class="post-meta__tags" href="/tags/Vue-router/">Vue-router</a><a class="post-meta__tags" href="/tags/Vuex/">Vuex</a><a class="post-meta__tags" href="/tags/Vue-Cli/">Vue Cli</a></div><div class="post_share"><div class="social-share" data-image="https://cn.vuejs.org/images/logo.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/24/vue%20cli%E7%AC%94%E8%AE%B0/"><img class="prev-cover" src="./themes/butterfly/source/img/4.gif" data-original="https://cn.vuejs.org/images/logo.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Vue cli笔记</div></div></a></div><div class="next-post pull-right"><a href="/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8BVue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91(%E4%BA%8C)/"><img class="next-cover" src="./themes/butterfly/source/img/4.gif" data-original="https://cn.vuejs.org/images/logo.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Vue全家桶之Vue组件化开发(二)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/24/vue%20cli%E7%AC%94%E8%AE%B0/" title="Vue cli笔记"><img class="cover" src="./themes/butterfly/source/img/4.gif" data-original="https://cn.vuejs.org/images/logo.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-24</div><div class="title">Vue cli笔记</div></div></a></div><div><a href="/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8Bwebpack%E8%AF%A6%E8%A7%A3(%E5%9B%9B)/" title="Vue全家桶之webpack详解(四)"><img class="cover" src="./themes/butterfly/source/img/4.gif" data-original="https://cn.vuejs.org/images/logo.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-24</div><div class="title">Vue全家桶之webpack详解(四)</div></div></a></div><div><a href="/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8BVue-router%E8%B7%AF%E7%94%B1(%E4%BA%94)/" title="Vue全家桶之Vue-router路由(五)"><img class="cover" src="./themes/butterfly/source/img/4.gif" data-original="https://cn.vuejs.org/images/logo.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-24</div><div class="title">Vue全家桶之Vue-router路由(五)</div></div></a></div><div><a href="/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8BVueX(%E5%85%AD)/" title="Vue全家桶之VueX(六)"><img class="cover" src="./themes/butterfly/source/img/4.gif" data-original="https://cn.vuejs.org/images/logo.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-24</div><div class="title">Vue全家桶之VueX(六)</div></div></a></div><div><a href="/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8BVue%E5%9F%BA%E7%A1%80%E6%8C%87%E4%BB%A4(%E4%B8%80)/" title="Vue全家桶之Vue基础指令(一)"><img class="cover" src="./themes/butterfly/source/img/4.gif" data-original="https://cn.vuejs.org/images/logo.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-24</div><div class="title">Vue全家桶之Vue基础指令(一)</div></div></a></div><div><a href="/2022/04/24/Vue%E5%85%A8%E5%AE%B6%E6%A1%B6%E4%B9%8BVue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91(%E4%BA%8C)/" title="Vue全家桶之Vue组件化开发(二)"><img class="cover" src="./themes/butterfly/source/img/4.gif" data-original="https://cn.vuejs.org/images/logo.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-24</div><div class="title">Vue全家桶之Vue组件化开发(二)</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="./themes/butterfly/source/img/4.gif" data-original="/img/2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Cat迪</div><div class="author-info__description">欢迎来到"我的世界"</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的世界</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%8D%E3%80%81%E7%9B%AE%E5%BD%95%E8%84%91%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text">✍、目录脑图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue%E7%BB%84%E4%BB%B6"><span class="toc-number"></span> <span class="toc-text">Vue组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E7%BB%84%E4%BB%B6%E7%9A%84%E4%B8%89%E4%B8%AA%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="toc-number">1.</span> <span class="toc-text">Vue组件的三个组成部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#template"><span class="toc-number">1.1.</span> <span class="toc-text">template</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#script"><span class="toc-number">1.2.</span> <span class="toc-text">script</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#style"><span class="toc-number">1.3.</span> <span class="toc-text">style</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A9style%E4%B8%AD%E6%94%AF%E6%8C%81less%E8%AF%AD%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">让style中支持less语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E6%A0%B7%E5%BC%8F%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98"><span class="toc-number">1.5.</span> <span class="toc-text">组件之间的样式冲突问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#deep-%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F"><span class="toc-number">1.6.</span> <span class="toc-text">&#x2F;deep&#x2F;样式穿透</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%84%E4%BB%B6%E7%9A%84%E4%B8%89%E4%B8%AA%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">使用组件的三个步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%81%E6%9C%89%E5%AD%90%E7%BB%84%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">私有子组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">注册全局组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-CLI2"><span class="toc-number"></span> <span class="toc-text">Vue CLI2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Vue%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">1.</span> <span class="toc-text">安装Vue脚手架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-CLI2-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.</span> <span class="toc-text">Vue CLI2 初始化项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3"><span class="toc-number">2.1.</span> <span class="toc-text">目录结构详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.2.</span> <span class="toc-text">运行项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-number">2.3.</span> <span class="toc-text">解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%ADEslint"><span class="toc-number">2.4.</span> <span class="toc-text">关闭Eslint</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-CLI3"><span class="toc-number"></span> <span class="toc-text">Vue CLI3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3-1"><span class="toc-number">1.</span> <span class="toc-text">目录结构详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE-1"><span class="toc-number">2.</span> <span class="toc-text">运行项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-CLI4"><span class="toc-number"></span> <span class="toc-text">Vue CLI4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8FSPA"><span class="toc-number">1.</span> <span class="toc-text">单页面应用程序SPA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">Vue项目的运行流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85VueCLI4"><span class="toc-number">3.</span> <span class="toc-text">安装VueCLI4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">4.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.</span> <span class="toc-text">项目目录介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE-2"><span class="toc-number">6.</span> <span class="toc-text">运行项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Runtime-Compiler%E5%92%8CRuntime-only%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">7.</span> <span class="toc-text">Runtime-Compiler和Runtime-only的区别</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/24/Html%E5%9F%BA%E7%A1%80/" title="HTML基础整合"><img src="./themes/butterfly/source/img/4.gif" data-original="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdn-sdkcnssl.qbox.me%2Farticle%2F4NrDAi2U3w6vlI4hUWHp.png&amp;refer=http%3A%2F%2Fdn-sdkcnssl.qbox.me&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1653464589&amp;t=ace16b4ab08069b51608bbc882c4c0f2" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTML基础整合"/></a><div class="content"><a class="title" href="/2022/04/24/Html%E5%9F%BA%E7%A1%80/" title="HTML基础整合">HTML基础整合</a><time datetime="2022-04-24T05:02:11.000Z" title="发表于 2022-04-24 13:02:11">2022-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/24/Bootstrap%E6%A1%86%E6%9E%B6%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" title="Bootstrap框架快速上手"><img src="./themes/butterfly/source/img/4.gif" data-original="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.php.cn%2Fupload%2Farticle%2F000%2F000%2F010%2F58db4a6934691886.jpg&amp;refer=http%3A%2F%2Fimg.php.cn&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1653461401&amp;t=fd0e98648200755c1463b732216bc473" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Bootstrap框架快速上手"/></a><div class="content"><a class="title" href="/2022/04/24/Bootstrap%E6%A1%86%E6%9E%B6%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" title="Bootstrap框架快速上手">Bootstrap框架快速上手</a><time datetime="2022-04-24T05:02:11.000Z" title="发表于 2022-04-24 13:02:11">2022-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/24/CSS%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0(%E4%B8%80)/" title="CSS基础笔记(一)"><img src="./themes/butterfly/source/img/4.gif" data-original="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbkimg.cdn.bcebos.com%2Fpic%2F9a504fc2d562853529ac54e498ef76c6a6ef63a3&amp;refer=http%3A%2F%2Fbkimg.cdn.bcebos.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1653461797&amp;t=179195cb943628eb03d0858c4e1ab0ed" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS基础笔记(一)"/></a><div class="content"><a class="title" href="/2022/04/24/CSS%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0(%E4%B8%80)/" title="CSS基础笔记(一)">CSS基础笔记(一)</a><time datetime="2022-04-24T05:02:11.000Z" title="发表于 2022-04-24 13:02:11">2022-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/24/CSS%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0(%E4%B8%89)/" title="CSS基础笔记(三)"><img src="./themes/butterfly/source/img/4.gif" data-original="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbkimg.cdn.bcebos.com%2Fpic%2F9a504fc2d562853529ac54e498ef76c6a6ef63a3&amp;refer=http%3A%2F%2Fbkimg.cdn.bcebos.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1653461797&amp;t=179195cb943628eb03d0858c4e1ab0ed" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS基础笔记(三)"/></a><div class="content"><a class="title" href="/2022/04/24/CSS%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0(%E4%B8%89)/" title="CSS基础笔记(三)">CSS基础笔记(三)</a><time datetime="2022-04-24T05:02:11.000Z" title="发表于 2022-04-24 13:02:11">2022-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/24/CSS%E8%BF%9B%E9%98%B6%E7%AC%94%E8%AE%B0(%E5%9B%9B)/" title="CSS进阶笔记(四)"><img src="./themes/butterfly/source/img/4.gif" data-original="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbkimg.cdn.bcebos.com%2Fpic%2F9a504fc2d562853529ac54e498ef76c6a6ef63a3&amp;refer=http%3A%2F%2Fbkimg.cdn.bcebos.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=auto?sec=1653461797&amp;t=179195cb943628eb03d0858c4e1ab0ed" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS进阶笔记(四)"/></a><div class="content"><a class="title" href="/2022/04/24/CSS%E8%BF%9B%E9%98%B6%E7%AC%94%E8%AE%B0(%E5%9B%9B)/" title="CSS进阶笔记(四)">CSS进阶笔记(四)</a><time datetime="2022-04-24T05:02:11.000Z" title="发表于 2022-04-24 13:02:11">2022-04-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By Cat迪</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">感谢光临本网站，有啥不足请指教</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>
